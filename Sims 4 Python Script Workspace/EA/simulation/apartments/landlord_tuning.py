@@ -1,0 +1,9 @@
+import servicesimport sims4from event_testing.tests import TunableTestSetfrom sims4.tuning.tunable import TunablePackSafeReferencefrom ui.ui_dialog_notification import TunableUiDialogNotificationSnippet
+class LandlordTuning:
+    LANDLORD_FILTER = TunablePackSafeReference(description='\n        The Sim Filter used to find/create a Landlord for the game.\n        ', manager=services.get_instance_manager(sims4.resources.Types.SIM_FILTER), class_restrictions=('TunableSimFilter',))
+    LANDLORD_REL_BIT = TunablePackSafeReference(description='\n        The rel bit to add between a landlord and apartment tenants. This will\n        be removed if a tenant moves out of an apartment.\n        ', manager=services.get_instance_manager(sims4.resources.Types.RELATIONSHIP_BIT), class_restrictions=('RelationshipBit',))
+    TENANT_REL_BIT = TunablePackSafeReference(description='\n        The rel bit to add between an apartment Tenant and their Landlord. This\n        will be removed if a tenant moves out of an apartment.\n        ', manager=services.get_instance_manager(sims4.resources.Types.RELATIONSHIP_BIT), class_restrictions=('RelationshipBit',))
+    LANDLORD_TRAIT = TunablePackSafeReference(description='\n        The Landlord Trait used in testing and Sim Filters.\n        ', manager=services.get_instance_manager(sims4.resources.Types.TRAIT), class_restrictions=('Trait',))
+    LANDLORD_FIRST_PLAY_RENT_REMINDER_NOTIFICATION = TunableUiDialogNotificationSnippet(description='\n        The notification to show a household if they are played on a new\n        apartment home.\n        ')
+    HOUSEHOLD_LANDLORD_EXCEPTION_TESTS = TunableTestSet(description='\n        Tests to run when determining if a household requires a landlord.\n        ')
+

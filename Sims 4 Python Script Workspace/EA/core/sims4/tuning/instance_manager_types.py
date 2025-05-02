@@ -1,0 +1,1 @@
+DEFINITION_MANAGER = 'DefinitionManager'MODULE_TUNING_MANAGER = 'ModuleTuningManager'ASPIRATION_INSTANCE_MANAGER = 'AspirationInstanceManager'INTERACTION_INSTANCE_MANAGER = 'InteractionInstanceManager'STATISTIC_INSTANCE_MANAGER = 'StatisticInstanceManager'INSTANCED_CLASS_MANAGER = 'InstancedClassManager'

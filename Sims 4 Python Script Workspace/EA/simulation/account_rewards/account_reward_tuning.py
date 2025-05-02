@@ -1,0 +1,35 @@
+import sims4import servicesfrom sims4.localization import TunableLocalizedStringfrom sims4.resources import Types, CompoundTypesfrom sims4.tuning.instances import TunedInstanceMetaclassfrom sims4.tuning.tunable import AutoFactoryInit, HasTunableFactory, TunableList, TunableReference, TunableResourceKey, TunableVariant, TunableCasPart, TunableFloorPattern, TunableWallPatternfrom sims4.tuning.tunable_base import ExportModes, GroupNamesfrom sims4.tuning.tunable_hash import TunableStringHash64
+class AccountReward(metaclass=TunedInstanceMetaclass, manager=services.get_instance_manager(sims4.resources.Types.ACCOUNT_REWARD)):
+
+    class _BuildBuyAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableReference(description='\n                Reference object definition for this item.\n                ', manager=services.definition_manager(), allow_none=False, export_modes=ExportModes.ClientBinary)}
+
+    class _CASAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableCasPart(description='\n                CAS Part resource for this item.\n                ', export_modes=ExportModes.ClientBinary)}
+
+    class _TraitAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableReference(description='\n                Reference trait for this item.\n                ', manager=services.get_instance_manager(Types.TRAIT), allow_none=False, export_modes=ExportModes.ClientBinary)}
+
+    class _LotTraitAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableReference(description='\n                Reference lot trait for this item.\n                ', manager=services.get_instance_manager(Types.ZONE_MODIFIER), allow_none=False, export_modes=ExportModes.ClientBinary)}
+
+    class _ConsumableAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableReference(description='\n                Reference consumable for this item.\n                ', manager=services.get_instance_manager(Types.ACTION), allow_none=False, export_modes=ExportModes.ClientBinary)}
+
+    class _RecipeAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableReference(description='\n                Reference recipe for this item.\n                ', manager=services.get_instance_manager(Types.RECIPE), allow_none=False, export_modes=ExportModes.ClientBinary)}
+
+    class _AspirationTrackAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableReference(description='\n                Reference aspiration track for this item.\n                ', manager=services.get_instance_manager(Types.ASPIRATION_TRACK), allow_none=False, export_modes=ExportModes.ClientBinary)}
+
+    class _RadioSongAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableStringHash64(description='\n                Song ID for this item.\n                ', default='', allow_empty=False, export_modes=ExportModes.ClientBinary, export_to_binary=True)}
+
+    class _CatalogProductFloorPatternAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableFloorPattern(description='\n                Floor Pattern resource for this item.\n                ', export_modes=ExportModes.ClientBinary)}
+
+    class _CatalogProductWallPatternAccountRewardItem(HasTunableFactory, AutoFactoryInit):
+        FACTORY_TUNABLES = {'item_resource': TunableWallPattern(description='\n                Wall Pattern resource for this item.\n                ', export_modes=ExportModes.ClientBinary)}
+
+    INSTANCE_TUNABLES = {'reward_name': TunableLocalizedString(description='\n            Reward name.\n            ', tuning_group=GroupNames.UI, export_modes=ExportModes.ClientBinary), 'reward_description': TunableLocalizedString(description='\n            Reward description.\n            ', tuning_group=GroupNames.UI, export_modes=ExportModes.ClientBinary), 'category': TunableLocalizedString(description='\n            Category associated with the reward item(s).\n            e.g. Fridge, Hair, Table\n            ', tuning_group=GroupNames.UI, export_modes=ExportModes.ClientBinary), 'location_tip': TunableLocalizedString(description='\n            Where you can find the reward item(s) in game.\n            e.g. CAS Summer Outfits, BB under Tables\n            ', tuning_group=GroupNames.UI, export_modes=ExportModes.ClientBinary), 'image': TunableResourceKey(description='\n            Reward preview image.\n            ', default=None, resource_types=CompoundTypes.IMAGE, tuning_group=GroupNames.UI, export_modes=ExportModes.ClientBinary), 'small_image': TunableResourceKey(description='\n            Image to show in the cell on the Timeline (progression).\n            ', default=None, resource_types=CompoundTypes.IMAGE, tuning_group=GroupNames.UI, deprecated=True), 'reward_timeline_image': TunableVariant(description='\n            Image to show in the cell on the Timeline (progression).\n            ', small_image=TunableResourceKey(description='\n                Small image variant.\n                ', default=None, resource_types=CompoundTypes.IMAGE), large_image=TunableResourceKey(description='\n                Large image variant.\n                ', default=None, resource_types=CompoundTypes.IMAGE), export_modes=ExportModes.ClientBinary, tuning_group=GroupNames.UI), 'reward_thumbnail_image': TunableResourceKey(description='\n            Image to show in the thumbnail on the FSI.\n            ', default=None, resource_types=CompoundTypes.IMAGE, tuning_group=GroupNames.UI, export_modes=ExportModes.ClientBinary), 'items': TunableList(description='\n            List of items that are claimed via this reward.\n            ', tunable=TunableVariant(description='\n                The type of AccountRewardItem.\n                ', build_buy_item=_BuildBuyAccountRewardItem.TunableFactory(), cas_item=_CASAccountRewardItem.TunableFactory(), trait_item=_TraitAccountRewardItem.TunableFactory(), lot_trait_item=_LotTraitAccountRewardItem.TunableFactory(), consumable_item=_ConsumableAccountRewardItem.TunableFactory(), recipe_item=_RecipeAccountRewardItem.TunableFactory(), aspiration_track_item=_AspirationTrackAccountRewardItem.TunableFactory(), radio_song_item=_RadioSongAccountRewardItem.TunableFactory(), catalog_product_floor_pattern_item=_CatalogProductFloorPatternAccountRewardItem.TunableFactory(), catalog_product_wall_pattern_item=_CatalogProductWallPatternAccountRewardItem.TunableFactory(), default='build_buy_item', export_modes=ExportModes.ClientBinary), export_modes=ExportModes.ClientBinary)}
+

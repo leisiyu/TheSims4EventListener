@@ -1,0 +1,4 @@
+from __future__ import annotationsfrom typing import TYPE_CHECKINGif TYPE_CHECKING:
+    from typing import *
+    from sims.sim_info import SimInfo
+    from crafting.recipe import Recipeimport sims4.logimport servicesfrom sims.sim_info_tracker import SimInfoTrackerfrom distributor.rollback import ProtocolBufferRollbackfrom sims.family_recipes.family_recipes_tuning import FamilyRecipesTuningfrom notebook.notebook_entry import SubEntryDatafrom sims4.utils import classpropertyfrom sims4.common import Packfrom event_testing.resolver import SingleSimResolverfrom element_utils import build_elementfrom objects import ALL_HIDDEN_REASONS_EXCEPT_UNINITIALIZEDlogger = sims4.log.Logger('FamilyRecipeTracker', default_owner='rahissamiyordi')

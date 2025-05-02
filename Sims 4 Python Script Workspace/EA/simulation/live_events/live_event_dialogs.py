@@ -1,0 +1,4 @@
+import sims4.resourcesfrom sims4.tuning.tunable import TunableMapping, Tunablefrom ui.ui_dialog_notification import UiDialogNotificationlogger = sims4.log.Logger('Live Event Dialogs', default_owner='dplourde')
+class LiveEventDialogs:
+    REWARD_NOTIFICATIONS = TunableMapping(description='\n        Mapping of LiveEvent Ids to what notification to show.\n        ', key_type=Tunable(description='\n            LiveEventId. To find Live Event Id:\n            1. Check AMP.\n            2. Run `liveevents.list_events` console command.\n            3. Open LiveEventUI and run `ui.liveEvents.current_event_details` console command.\n            ', tunable_type=str, default=''), value_type=UiDialogNotification.TunableFactory(description='\n            TNS dialog to display when a new reward has become available.\n            '), key_name='event_id', value_name='notification')
+
