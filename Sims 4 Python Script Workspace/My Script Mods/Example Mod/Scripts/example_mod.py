@@ -54,9 +54,10 @@ def getSimZone(_connection=None):
     current_zone = services.current_zone()
     if current_zone is not None:
         zone_id = current_zone.id  # Get the current zone ID
-        output(f"Sim is in zone: {zone_id}")
+        zone_name = current_zone.lot.get_lot_name()
+        output(f"Sim is in zone: {zone_id}" + zone_name)
         with open('D:\\Qianwen\\Mods\\example.txt', 'a') as file:
-            file.write(f"Sim is in zone: {zone_id}\n")
+            file.write(f"Sim is in zone: {zone_id} {zone_name}\n")
     else:
         output("Unable to retrieve the current zone.")
 
