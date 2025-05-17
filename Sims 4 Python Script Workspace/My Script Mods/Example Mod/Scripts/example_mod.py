@@ -84,5 +84,9 @@ def getInGameTime(_connection=None):
 
 @sims4.commands.Command('regevent', command_type=sims4.commands.CommandType.Live)
 def regEvent(_connection=None):
+    output = sims4.commands.CheatOutput(_connection)
+    output("register event")
     myModEvents = MyModEvents("test")
     myModEvents.registerEvent()
+
+
