@@ -2,6 +2,7 @@
 import services
 from event_testing.test_events import TestEvent
 from interactions import ParticipantType
+import Util
 
 
 class MyModEvents():
@@ -9,8 +10,9 @@ class MyModEvents():
         self.data = data
 
     def handle_event(self, sim_info, event, resolver):
+        logDir = Util.getPath()
         if sim_info is None:
-            with open('D:\\Qianwen\\Mods\\example.txt', 'a') as file:
+            with open(logDir, 'a') as file:
                 file.write("Sim info is None\n")
             return
         # participant = resolver.get_participant(ParticipantType.Actor)
@@ -20,8 +22,9 @@ class MyModEvents():
         interaction = resolver.interaction  # Access the completed interaction
         target = interaction.target  # Get the target of the interaction
         interaction_name = interaction.affordance.__name__  # Name of the interaction
-        with open('D:\\Qianwen\\Mods\\example.txt', 'a') as file:
-            file.write(f"Sim: {sim_info.full_name}, Interaction: {interaction_name}, Target: {target}\n")
+
+        with open(logDir, 'a') as file:
+            file.write(f"Sim: {sim_info.first_name}, Interaction: {interaction_name}, Target: {target}\n")
 
 
     def registerEvent(self):

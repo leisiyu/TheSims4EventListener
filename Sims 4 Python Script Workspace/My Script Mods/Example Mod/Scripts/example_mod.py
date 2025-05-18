@@ -1,6 +1,7 @@
 import sims4.commands
 import services
 import json
+import Util
 
 from my_mod_events import MyModEvents
 
@@ -11,7 +12,9 @@ from my_mod_events import MyModEvents
 def myfirstscript(_connection=None):
     output = sims4.commands.CheatOutput(_connection)
     output("this is my first script")
-    with open('D:\Qianwen\Mods\example.txt', 'a') as file:
+    logDir = Util.getPath()
+    output("logDir is " + logDir)
+    with open(logDir, 'a') as file:
         file.write('This is my first script mod \n')#
 
 @sims4.commands.Command('siminfo', command_type=sims4.commands.CommandType.Live)
@@ -30,7 +33,8 @@ def getSimName(_connection=None):
     client = services.client_manager().get_first_client()
     sim_info = client.active_sim.sim_info
     full_name = sim_info.first_name + " " + sim_info.last_name
-    with open('D:\Qianwen\Mods\example.txt', 'a') as file:
+    logDir = Util.getPath()
+    with open(logDir, 'a') as file:
         file.write('full name is ' + full_name + "\n")#
     output = sims4.commands.CheatOutput(_connection)
 
@@ -44,7 +48,8 @@ def getSimLocation(_connection=None):
     position_str = f"X: {position.x}, Y: {position.y}, Z: {position.z}"
     output = sims4.commands.CheatOutput(_connection)
     output("location:" + position_str)
-    with open('D:\Qianwen\Mods\example.txt', 'a') as file:
+    logDir = Util.getPath()
+    with open(logDir, 'a') as file:
         file.write('location is: ' + position_str + "\n")  #
 
 
@@ -56,7 +61,8 @@ def getSimZone(_connection=None):
         zone_id = current_zone.id  # Get the current zone ID
         zone_name = current_zone.lot.get_lot_name()
         output(f"Sim is in zone: {zone_id}" + zone_name)
-        with open('D:\\Qianwen\\Mods\\example.txt', 'a') as file:
+        logDir = Util.getPath()
+        with open(logDir, 'a') as file:
             file.write(f"Sim is in zone: {zone_id} {zone_name}\n")
     else:
         output("Unable to retrieve the current zone.")
@@ -78,7 +84,8 @@ def getInGameTime(_connection=None):
                                                                                         timeline_now.day(),
                                                                                         timeline_now.week())
     output(results)
-    with open('D:\Qianwen\Mods\example.txt', 'a') as file:
+    logDir = Util.getPath()
+    with open(logDir, 'a') as file:
         file.write(results + "\n")
 
 
