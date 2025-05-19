@@ -21,14 +21,22 @@ class MyModEvents():
         timeline_now = services.time_service().sim_now
         time_str = timeline_now
         interaction = resolver.interaction  # Access the completed interaction
-        target = interaction.target  # Get the target of the interaction
+        # target = interaction.target  # Get the target of the interaction
         interaction_name = interaction.affordance.__name__  # Name of the interaction
         simName = sim_info.first_name + " " + sim_info.last_name
 
+        actor = resolver.get_participant(ParticipantType.Actor)
+        target = resolver.get_participant(ParticipantType.TargetSim)
+
+        if actor and target:
+            actor_name = actor.first_name + " " + actor.last_name
+            target_name = target.first_name + " " + target.last_name
+
         eventJson = {
             "sim_name": simName,
+            "target_name": target_name,
             "interaction_name": interaction_name,
-            "target": str(target),
+            # "target": str(target),
             "time": str(time_str)
         }
 
@@ -39,5 +47,5 @@ class MyModEvents():
     def registerEvent(self):
         event_manager = services.get_event_manager()
         if event_manager is not None:
-            event_manager.register_single_event(self, TestEvent.InteractionStart)
+            event_manager.register_single_event(self, TestEvent.InteractionComplete)
 
