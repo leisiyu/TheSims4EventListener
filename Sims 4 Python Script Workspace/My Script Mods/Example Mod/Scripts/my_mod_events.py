@@ -32,11 +32,21 @@ class MyModEvents():
             actor_name = actor.first_name + " " + actor.last_name
             target_name = target.first_name + " " + target.last_name
 
+        current_zone = services.current_zone()
+        if current_zone is not None:
+            zone_id = current_zone.id  # Get the current zone ID
+            zone_name = current_zone.lot.get_lot_name()
+
+        position = sim_info.get_sim_instance().transform.translation
+        position_str = f"X: {position.x} Y: {position.y} Z: {position.z}"
+
         eventJson = {
             "sim_name": simName,
             "target_name": target_name,
             "interaction_name": interaction_name,
             # "target": str(target),
+            "zone": zone_name,
+            "sim_position": position_str,
             "time": str(time_str)
         }
 
