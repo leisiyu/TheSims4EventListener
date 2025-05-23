@@ -19,7 +19,7 @@ class MyModEvents():
         # participant = resolver.get_participant(ParticipantType.Actor)
 
         timeline_now = services.time_service().sim_now
-        time_str = timeline_now
+        time_str = Util.timeToTimeStamp(timeline_now)
         interaction = resolver.interaction  # Access the completed interaction
         # target = interaction.target  # Get the target of the interaction
         interaction_name = interaction.affordance.__name__  # Name of the interaction
@@ -40,12 +40,17 @@ class MyModEvents():
         position = sim_info.get_sim_instance().transform.translation
         position_str = f"X: {position.x} Y: {position.y} Z: {position.z}"
 
+        # plex_service = services.get_plex_service()
+        # if plex_service is not None:
+        #     building = plex_service.get_building_by_zone_id(services.current_zone_id())
+
+
         eventJson = {
             "sim_name": simName,
             "target_name": target_name,
             "interaction_name": interaction_name,
-            # "target": str(target),
             "zone": zone_name,
+            # "building": building,
             "sim_position": position_str,
             "time": str(time_str)
         }
