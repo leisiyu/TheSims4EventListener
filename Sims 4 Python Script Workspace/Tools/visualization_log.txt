@@ -1,0 +1,76 @@
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "reactions_Generic_Cheer", "building_name": "Daisy Hovel", "time": "1965125"}
+{"sim_name": "Spenser Doyle", "target_name": "Travis Scott", "interaction_name": "reactions_Generic_Cheer", "building_name": "Daisy Hovel", "time": "1965125"}
+{"sim_name": "Joy Justice", "target_name": "Joy Justice", "interaction_name": "si_touching_Toddler_Hug_RecentlyReturned_Caregiver", "building_name": "Daisy Hovel", "time": "1965126"}
+{"sim_name": "Melany Copeland", "target_name": "Joy Justice", "interaction_name": "si_touching_Toddler_Hug_RecentlyReturned_Caregiver", "building_name": "Daisy Hovel", "time": "1965126"}
+{"sim_name": "Joy Justice", "target_name": "Melany Copeland", "interaction_name": "carry_HoldSim", "building_name": "Daisy Hovel", "time": "1966088"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "carry_HoldSim", "building_name": "Daisy Hovel", "time": "1966088"}
+{"sim_name": "Joy Justice", "target_name": "Joy Justice", "interaction_name": "generic_BeCarried", "building_name": "Daisy Hovel", "time": "1966174"}
+{"sim_name": "Melany Copeland", "target_name": "Joy Justice", "interaction_name": "generic_BeCarried", "building_name": "Daisy Hovel", "time": "1966174"}
+{"sim_name": "Kieran Caliente", "target_name": "Kieran Caliente", "interaction_name": "immediate_Introduction_MakeHasMetInSocialGroup", "building_name": "Daisy Hovel", "time": "1966179"}
+{"sim_name": "Nancy Landgraab", "target_name": "Kieran Caliente", "interaction_name": "immediate_Introduction_MakeHasMetInSocialGroup", "building_name": "Daisy Hovel", "time": "1966179"}
+{"sim_name": "Kieran Caliente", "target_name": "Nancy Landgraab", "interaction_name": "mixer_social_NPC_greetings", "building_name": "Daisy Hovel", "time": "1966179"}
+{"sim_name": "Nancy Landgraab", "target_name": "Nancy Landgraab", "interaction_name": "mixer_social_NPC_greetings", "building_name": "Daisy Hovel", "time": "1966179"}
+{"sim_name": "Joy Justice", "target_name": "Melany Copeland", "interaction_name": "socialSuperInteraction_CarryPickUp", "building_name": "Daisy Hovel", "time": "1966204"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "socialSuperInteraction_CarryPickUp", "building_name": "Daisy Hovel", "time": "1966204"}
+{"sim_name": "Kieran Caliente", "target_name": "Nancy Landgraab", "interaction_name": "sim_Chat", "building_name": "Daisy Hovel", "time": "1966310"}
+{"sim_name": "Nancy Landgraab", "target_name": "Nancy Landgraab", "interaction_name": "sim_Chat", "building_name": "Daisy Hovel", "time": "1966310"}
+{"sim_name": "Kieran Caliente", "target_name": "Kieran Caliente", "interaction_name": "sim_Chat", "building_name": "Daisy Hovel", "time": "1966626"}
+{"sim_name": "Nancy Landgraab", "target_name": "Kieran Caliente", "interaction_name": "sim_Chat", "building_name": "Daisy Hovel", "time": "1966626"}
+{"sim_name": "Joy Justice", "target_name": "Melany Copeland", "interaction_name": "bed_Toddler_TuckIn_FromPutDown", "building_name": "Daisy Hovel", "time": "1966642"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "bed_Toddler_TuckIn_FromPutDown", "building_name": "Daisy Hovel", "time": "1966642"}
+{"sim_name": "Nancy Landgraab", "target_name": "Nancy Landgraab", "interaction_name": "SocialPickerSI", "building_name": "Daisy Hovel", "time": "1967133"}
+{"sim_name": "Jeffrey Sampson", "target_name": "Nancy Landgraab", "interaction_name": "SocialPickerSI", "building_name": "Daisy Hovel", "time": "1967133"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "si_touching_Greeting_Hug_Friendly", "building_name": "Daisy Hovel", "time": "1967663"}
+{"sim_name": "Joy Justice", "target_name": "Travis Scott", "interaction_name": "si_touching_Greeting_Hug_Friendly", "building_name": "Daisy Hovel", "time": "1967663"}
+{"sim_name": "King Goth", "target_name": "King Goth", "interaction_name": "SocialPickerSI", "building_name": "Daisy Hovel", "time": "1967990"}
+{"sim_name": "Jeffrey Sampson", "target_name": "King Goth", "interaction_name": "SocialPickerSI", "building_name": "Daisy Hovel", "time": "1967990"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "mixer_social_ComplainAbout_Fruitcake_targeted_alwayson", "building_name": "Daisy Hovel", "time": "1968396"}
+{"sim_name": "Joy Justice", "target_name": "Travis Scott", "interaction_name": "mixer_social_ComplainAbout_Fruitcake_targeted_alwayson", "building_name": "Daisy Hovel", "time": "1968396"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "socials_Targeted_Friendly_AlwaysOn_STC_Toddler_AskToPutToBed", "building_name": "Daisy Hovel", "time": "1988092"}
+{"sim_name": "Travis Scott", "target_name": "Melany Copeland", "interaction_name": "socials_Targeted_Friendly_AlwaysOn_STC_Toddler_AskToPutToBed", "building_name": "Daisy Hovel", "time": "1988092"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "sim_Toddler_Talk", "building_name": "Daisy Hovel", "time": "1988092"}
+{"sim_name": "Travis Scott", "target_name": "Melany Copeland", "interaction_name": "sim_Toddler_Talk", "building_name": "Daisy Hovel", "time": "1988092"}
+{"sim_name": "Melany Copeland", "target_name": "Travis Scott", "interaction_name": "sim_Toddler_Talk", "building_name": "Daisy Hovel", "time": "1988102"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "sim_Toddler_Talk", "building_name": "Daisy Hovel", "time": "1988102"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "socialSuperInteraction_CarryPickUp_ToBed", "building_name": "Daisy Hovel", "time": "1988248"}
+{"sim_name": "Travis Scott", "target_name": "Melany Copeland", "interaction_name": "socialSuperInteraction_CarryPickUp_ToBed", "building_name": "Daisy Hovel", "time": "1988248"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "carry_HoldSim", "building_name": "Daisy Hovel", "time": "1988789"}
+{"sim_name": "Travis Scott", "target_name": "Melany Copeland", "interaction_name": "carry_HoldSim", "building_name": "Daisy Hovel", "time": "1988789"}
+{"sim_name": "Melany Copeland", "target_name": "Travis Scott", "interaction_name": "generic_BeCarried", "building_name": "Daisy Hovel", "time": "1988882"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "generic_BeCarried", "building_name": "Daisy Hovel", "time": "1988882"}
+{"sim_name": "Melany Copeland", "target_name": "Melany Copeland", "interaction_name": "bed_Toddler_TuckIn_FromPutDown", "building_name": "Daisy Hovel", "time": "1989345"}
+{"sim_name": "Travis Scott", "target_name": "Melany Copeland", "interaction_name": "bed_Toddler_TuckIn_FromPutDown", "building_name": "Daisy Hovel", "time": "1989345"}
+{"sim_name": "Travis Scott", "target_name": "Geoffrey Landgraab", "interaction_name": "mixer_social_FlashCrazyEyes_targeted_funny_emotionSpecific", "building_name": "The Blue Velvet", "time": "1991051"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Geoffrey Landgraab", "interaction_name": "mixer_social_FlashCrazyEyes_targeted_funny_emotionSpecific", "building_name": "The Blue Velvet", "time": "1991051"}
+{"sim_name": "Travis Scott", "target_name": "Geoffrey Landgraab", "interaction_name": "mixer_social_MakeAFlirtatiousJoke_targeted_romance_emotionSpecific", "building_name": "The Blue Velvet", "time": "1991475"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Geoffrey Landgraab", "interaction_name": "mixer_social_MakeAFlirtatiousJoke_targeted_romance_emotionSpecific", "building_name": "The Blue Velvet", "time": "1991475"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Eliza Pancakes", "interaction_name": "SocialPickerSI", "building_name": "The Blue Velvet", "time": "1991478"}
+{"sim_name": "Eliza Pancakes", "target_name": "Eliza Pancakes", "interaction_name": "SocialPickerSI", "building_name": "The Blue Velvet", "time": "1991478"}
+{"sim_name": "Travis Scott", "target_name": "Geoffrey Landgraab", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1991482"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Geoffrey Landgraab", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1991482"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Travis Scott", "interaction_name": "immediate_Introduction_MakeHasMetInSocialGroup", "building_name": "The Blue Velvet", "time": "1991727"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "immediate_Introduction_MakeHasMetInSocialGroup", "building_name": "The Blue Velvet", "time": "1991727"}
+{"sim_name": "Eliza Pancakes", "target_name": "Travis Scott", "interaction_name": "immediate_Introduction_MakeHasMetInSocialGroup", "building_name": "The Blue Velvet", "time": "1991727"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "immediate_Introduction_MakeHasMetInSocialGroup", "building_name": "The Blue Velvet", "time": "1991727"}
+{"sim_name": "Travis Scott", "target_name": "Eliza Pancakes", "interaction_name": "mixer_social_FunnyIntroduction_greetings", "building_name": "The Blue Velvet", "time": "1991727"}
+{"sim_name": "Eliza Pancakes", "target_name": "Eliza Pancakes", "interaction_name": "mixer_social_FunnyIntroduction_greetings", "building_name": "The Blue Velvet", "time": "1991727"}
+{"sim_name": "Carlos Helms", "target_name": "Matty Dolan", "interaction_name": "SocialPickerSI", "building_name": "The Blue Velvet", "time": "1992100"}
+{"sim_name": "Matty Dolan", "target_name": "Matty Dolan", "interaction_name": "SocialPickerSI", "building_name": "The Blue Velvet", "time": "1992100"}
+{"sim_name": "Travis Scott", "target_name": "Geoffrey Landgraab", "interaction_name": "mixer_social_ImpishlyPester_targeted_mean_emotionSpecific", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Geoffrey Landgraab", "interaction_name": "mixer_social_ImpishlyPester_targeted_mean_emotionSpecific", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Travis Scott", "target_name": "Eliza Pancakes", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Eliza Pancakes", "target_name": "Eliza Pancakes", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Eliza Pancakes", "target_name": "Geoffrey Landgraab", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Geoffrey Landgraab", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Eliza Pancakes", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Eliza Pancakes", "target_name": "Eliza Pancakes", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Geoffrey Landgraab", "target_name": "Dina Caliente", "interaction_name": "SocialPickerSI", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Dina Caliente", "target_name": "Dina Caliente", "interaction_name": "SocialPickerSI", "building_name": "The Blue Velvet", "time": "1992366"}
+{"sim_name": "Travis Scott", "target_name": "Don Lothario", "interaction_name": "si_nonTouching_Greetings_Glare", "building_name": "The Blue Velvet", "time": "1992742"}
+{"sim_name": "Don Lothario", "target_name": "Don Lothario", "interaction_name": "si_nonTouching_Greetings_Glare", "building_name": "The Blue Velvet", "time": "1992742"}
+{"sim_name": "Travis Scott", "target_name": "Don Lothario", "interaction_name": "mixer_social_DeclareEnemy_targeted_mean_relationship", "building_name": "The Blue Velvet", "time": "1993033"}
+{"sim_name": "Don Lothario", "target_name": "Don Lothario", "interaction_name": "mixer_social_DeclareEnemy_targeted_mean_relationship", "building_name": "The Blue Velvet", "time": "1993033"}
+{"sim_name": "Travis Scott", "target_name": "Don Lothario", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1993033"}
+{"sim_name": "Don Lothario", "target_name": "Don Lothario", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1993033"}
+{"sim_name": "Don Lothario", "target_name": "Travis Scott", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1993033"}
+{"sim_name": "Travis Scott", "target_name": "Travis Scott", "interaction_name": "sim_Chat", "building_name": "The Blue Velvet", "time": "1993033"}
