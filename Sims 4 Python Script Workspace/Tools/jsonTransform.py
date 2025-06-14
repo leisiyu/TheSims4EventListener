@@ -59,21 +59,27 @@ def getCharacterId(name):
 	return False
 
 with open("./visualization_log.txt") as f:
+	firstTimeStamp = 0
+	idx = 0
 	for line in f:
 		jsonObj = json.loads(line)
 		simId = getCharacterId(jsonObj["sim_name"])
 		targetId = getCharacterId(jsonObj["target_name"])
 		#if int(simId) <= 5 and int(targetId) <= 5:
 		currentJson = {}
-		currentJson["timestamp"] = int(jsonObj["time"]) - 1965125
-		currentJson["killerName"] = jsonObj["sim_name"]
-		currentJson["victimName"] = jsonObj["target_name"]
+		if idx == 0:
+			firstTimeStamp = int(jsonObj["time"])
+		currentJson["timestamp"] = int(jsonObj["time"]) - firstTimeStamp
+		currentJson["interactor"] = jsonObj["sim_name"]
+		currentJson["interactee"] = jsonObj["target_name"]
 		currentJson["position"] = jsonObj["building_name"]
-		currentJson["killType"] = jsonObj["interaction_name"]
+		currentJson["eventType"] = jsonObj["interaction_name"]
 		# currentJson["killType"] = "CHAMPION_KILL"
-		currentJson["killerID"] = getCharacterId(jsonObj["sim_name"])
-		currentJson["victimID"] = getCharacterId(jsonObj["target_name"])
+		currentJson["interactorID"] = getCharacterId(jsonObj["sim_name"])
+		currentJson["interacteeID"] = getCharacterId(jsonObj["target_name"])
+		currentJson["eventDetails"] = ""
 		eventJson.append(currentJson)
+		idx = idx + 1
 f.close()
 
 with open("./simEvents.json", "w") as f:
@@ -91,9 +97,9 @@ def checkHasInteraction(interaction):
 	return False
 
 for event in eventJson:
-	isInInteractions = checkHasInteraction(event["killType"])
+	isInInteractions = checkHasInteraction(event["eventType"])
 	if not isInInteractions:
-		interactions.append(event["killType"])
+		interactions.append(event["eventType"])
 
 with open("./interactions.json", "w") as f:
 	json.dump(interactions, f)
@@ -135,30 +141,46 @@ for event in eventJson:
 		infoJson["Story"]["Locations"][location].append(locationIdx)
 		locationIdx = locationIdx + 1
 	
-	# if len(sessions) <= 0:
-	# 	sessions.append({"location": location, "start": event["timestamp"], "end": event["timestamp"]})
-	# 	infoJson["Story"]["Locations"][location].append(1)
-	# else: 
-	# 	if sessions[len(sessions) - 1]["location"] == location:
-	# 		sessions[len(sessions) - 1]["end"] = event["timestamp"]
-	# 	else:
-	# 		sessions.append({"location": location, "start": event["timestamp"], "end": event["timestamp"]})
-	# 		infoJson["Story"]["Locations"][location].append(len(sessions))
+
+def updateSessionData(characterKey, event):
+	if not (characterKey in infoJson["Story"]["Characters"]):
+		infoJson["Story"]["Characters"][characterKey] = []
+	interactorSessions = infoJson["Story"]["Characters"][characterKey]
+	if len(interactorSessions) == 0:
+		tempSession = {}
+		tempSession["Start"] = event["timestamp"]
+		tempSession["End"] = event["timestamp"]
+		tempSession["Session"] = getLocationIdx(event["position"])
+		interactorSessions.append(tempSession)
+	else: 
+		if interactorSessions[len(infoJson["Story"]["Characters"][characterKey]) - 1]["Session"] == getLocationIdx(event["position"]):
+			interactorSessions[len(infoJson["Story"]["Characters"][characterKey]) - 1]["End"] = event["timestamp"]
+		else:
+			tempSession = {}
+			tempSession["Start"] = event["timestamp"]
+			tempSession["End"] = event["timestamp"]
+			tempSession["Session"] = getLocationIdx(event["position"])
+			interactorSessions.append(tempSession)
+
 
 
 for event in eventJson:
-	# killer
-	killerName = event["killerName"]
-	killerId = event["killerID"]
-	killerKey = "Player" + str(killerId)
-
-	# victim
-	victimName = event["victimName"]
-	victimId = event["victimID"]
-	victimKey = "Player" + str(victimId)
+	# interactor
+	interactorId = event["interactorID"]
+	interactorKey = "Player" + str(interactorId)
+	updateSessionData(interactorKey, event)
+	# interactee
+	interacteeId = event["interacteeID"]
+	interacteeKey = "Player" + str(interacteeId)
+	updateSessionData(interacteeKey, event)
 
 	
+	
 
+	
+with open("./simSessions.json", "w") as f:
+	json.dump(infoJson, f)
+f.close
 
 
 
