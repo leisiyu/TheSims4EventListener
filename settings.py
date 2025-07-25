@@ -1,6 +1,6 @@
 import os
 
-creator_name = 'Qianwen Lyu'
+creator_name = 'QL'
 mods_folder = os.path.expanduser(
     os.path.join('D:', os.sep, 'Qianwen', 'Mods')
 )
