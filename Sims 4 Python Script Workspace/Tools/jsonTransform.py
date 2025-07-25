@@ -42,34 +42,44 @@ f.close()
 # generate event json file
 eventJson = []
 
-def getCharacterId(name):
-	jsonObj = []
-	with open("./sims.json") as simsFile:
-		jsonObj = json.loads(simsFile.read())
-	simsFile.close()
+# def getCharacterId(name):
+# 	jsonObj = []
+# 	with open("./sims.json") as simsFile:
+# 		jsonObj = json.loads(simsFile.read())
+# 	simsFile.close()
 
-	for sim in jsonObj["info"]["participants"]:
-			if sim["championName"] == name:
-				return sim["participantId"]
+# 	for sim in jsonObj["info"]["participants"]:
+# 			if sim["championName"] == name:
+# 				return sim["participantId"]
+# 	return False
+def getCharacterId(name):
+	for item in nameJson["info"]["participants"]:
+		if name == item["championName"]:
+			return item["participantId"]
 	return False
 
-getCharacterId("haha")
 with open("./visualization_log.txt") as f:
+	firstTimeStamp = 0
+	idx = 0
 	for line in f:
 		jsonObj = json.loads(line)
 		simId = getCharacterId(jsonObj["sim_name"])
 		targetId = getCharacterId(jsonObj["target_name"])
-		if int(simId) <= 5 and int(targetId) <= 5:
-			currentJson = {}
-			currentJson["timestamp"] = int(jsonObj["time"]) - 1965125
-			currentJson["killerName"] = jsonObj["sim_name"]
-			currentJson["victimName"] = jsonObj["target_name"]
-			currentJson["position"] = jsonObj["building_name"]
-			currentJson["killType"] = jsonObj["interaction_name"]
-			# currentJson["killType"] = "CHAMPION_KILL"
-			currentJson["killerID"] = getCharacterId(jsonObj["sim_name"])
-			currentJson["victimID"] = getCharacterId(jsonObj["target_name"])
-			eventJson.append(currentJson)
+		#if int(simId) <= 5 and int(targetId) <= 5:
+		currentJson = {}
+		if idx == 0:
+			firstTimeStamp = int(jsonObj["time"])
+		currentJson["timestamp"] = int(jsonObj["time"]) - firstTimeStamp
+		currentJson["interactor"] = jsonObj["sim_name"]
+		currentJson["interactee"] = jsonObj["target_name"]
+		currentJson["position"] = jsonObj["building_name"]
+		currentJson["eventType"] = jsonObj["interaction_name"]
+		# currentJson["killType"] = "CHAMPION_KILL"
+		currentJson["interactorID"] = getCharacterId(jsonObj["sim_name"])
+		currentJson["interacteeID"] = getCharacterId(jsonObj["target_name"])
+		currentJson["eventDetails"] = ""
+		eventJson.append(currentJson)
+		idx = idx + 1
 f.close()
 
 with open("./simEvents.json", "w") as f:
@@ -87,9 +97,9 @@ def checkHasInteraction(interaction):
 	return False
 
 for event in eventJson:
-	isInInteractions = checkHasInteraction(event["killType"])
+	isInInteractions = checkHasInteraction(event["eventType"])
 	if not isInInteractions:
-		interactions.append(event["killType"])
+		interactions.append(event["eventType"])
 
 with open("./interactions.json", "w") as f:
 	json.dump(interactions, f)
@@ -107,36 +117,70 @@ infoJson = {
 		}
 	}
 }
-sessions = []
+
 def checkHasPos(pos, posList):
 	for key, value in posList.items():
 		if key == pos:
 			return True
 	return False
 
+def getLocationIdx(location):
+	for key, value in infoJson["Story"]["Locations"].items():
+		if key == location:
+			return value[0]
+
+	return False
+
+
+
 locationIdx = 1
 for event in eventJson:
-	if not checkHasPos(event["position"], infoJson["Story"]["Locations"]):
-		infoJson["Story"]["Locations"][event["position"]] = []
-		infoJson["Story"]["Locations"][event["position"]].append(locationIdx)
-		locationIdx = locationIdx + 1
 	location = event["position"]
-	if len(sessions) <= 0:
-		sessions.append({"location": location, "start": event["timestamp"], "end": event["timestamp"]})
-		infoJson["Story"]["Locations"][location].append(1)
-	else: 
-		if sessions[len(sessions) - 1]["location"] == location:
-			sessions[len(sessions) - 1]["end"] = event["timestamp"]
-		else:
-			sessions.append({"location": location, "start": event["timestamp"], "end": event["timestamp"]})
-			infoJson["Story"]["Locations"][location].append(len(sessions))
-
-
-# for event in eventJson:
-# 	for player in nameJson["info"]["participants"]:
-# 		if player["championName"]
+	if not checkHasPos(location, infoJson["Story"]["Locations"]):
+		infoJson["Story"]["Locations"][location] = []
+		infoJson["Story"]["Locations"][location].append(locationIdx)
+		locationIdx = locationIdx + 1
 	
 
+def updateSessionData(characterKey, event):
+	if not (characterKey in infoJson["Story"]["Characters"]):
+		infoJson["Story"]["Characters"][characterKey] = []
+	interactorSessions = infoJson["Story"]["Characters"][characterKey]
+	if len(interactorSessions) == 0:
+		tempSession = {}
+		tempSession["Start"] = event["timestamp"]
+		tempSession["End"] = event["timestamp"]
+		tempSession["Session"] = getLocationIdx(event["position"])
+		interactorSessions.append(tempSession)
+	else: 
+		if interactorSessions[len(infoJson["Story"]["Characters"][characterKey]) - 1]["Session"] == getLocationIdx(event["position"]):
+			interactorSessions[len(infoJson["Story"]["Characters"][characterKey]) - 1]["End"] = event["timestamp"]
+		else:
+			tempSession = {}
+			tempSession["Start"] = event["timestamp"]
+			tempSession["End"] = event["timestamp"]
+			tempSession["Session"] = getLocationIdx(event["position"])
+			interactorSessions.append(tempSession)
+
+
+
+for event in eventJson:
+	# interactor
+	interactorId = event["interactorID"]
+	interactorKey = "Player" + str(interactorId)
+	updateSessionData(interactorKey, event)
+	# interactee
+	interacteeId = event["interacteeID"]
+	interacteeKey = "Player" + str(interacteeId)
+	updateSessionData(interacteeKey, event)
+
+	
+	
+
+	
+with open("./simSessions.json", "w") as f:
+	json.dump(infoJson, f)
+f.close
 
 
 
