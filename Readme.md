@@ -7,8 +7,8 @@ How to set up the environment: https://sims4studio.com/thread/15145/started-pyth
 
 ## Pre-requisites:
 - The Sims 4 game installed.
-- python 3.7.
-## Installation:
+- Development need python 3.7.
+## Mod Installation:
 
 1. Find the ".ts4script" mod file under "Sims 4 Python Script Workspace/My Script Mods/Example Mod/" 
 2. Place the ".ts4script" file in your Sims 4 Mods folder, which is typically located at:
